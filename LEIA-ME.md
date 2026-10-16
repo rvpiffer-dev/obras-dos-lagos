@@ -29,12 +29,20 @@ No macOS/Linux: `python3 iniciar.py` ou `node iniciar.js`.
 ## Rotina diária
 
 - **Ao iniciar:** selecione a obra no topo, abra Agenda e trate prioridades e impedimentos.
-- **Durante o dia:** registre quantitativos, equipe, horas-pessoa, ocorrências e referências de fotos no Diário. Quantidades do diário somam ao avanço do serviço; editar o registro aplica somente a diferença. Não registre novamente um avanço já lançado diretamente na atividade.
+- **Durante o dia:** registre quantitativos, equipe, horas-pessoa, ocorrências e fotos no Diário. Quantidades do diário somam ao avanço do serviço; editar o registro aplica somente a diferença. Não registre novamente um avanço já lançado diretamente na atividade.
 - **Compras:** registre cotação em Orçamento → Cotações. Ela só compromete verba quando for cadastrada em Contratos e pagamentos.
 - **Estoque:** entradas, consumos e perdas vão em Materiais → Entradas, consumos e perdas. Registrar recebimento **não reduz sozinho** a quantidade em pedidos abertos; atualize o pedido do insumo para evitar dupla contagem.
 - **Ao encerrar:** atualize próxima ação, tarefas e pendências e clique em **Exportar backup**.
 
 ## Regras de cálculo
+
+### Fotos e DOCX do diário
+
+Em **Diário → Novo registro** ou **Editar**, use **Adicionar fotos**, confira as prévias e preencha as legendas. Salve o registro antes de usar **Gerar DOCX** na linha do diário. O documento contém os dados do registro e uma página por foto, preservando sua proporção. A opção **Fotos** abre as imagens já salvas.
+
+As imagens são reduzidas para até 1.600 pixels e armazenadas como JPEG no IndexedDB deste navegador. JPEG e PNG são os formatos recomendados; outros formatos dependem da capacidade de decodificação do aparelho. Nenhuma foto é enviada ao GitHub. O backup JSON inclui as imagens dos registros e do histórico; importe esse backup para transferir os dados para outro dispositivo. Evite limpar os dados do site sem exportar o backup.
+
+O gerador DOCX e sua biblioteca estão incluídos no aplicativo e no cache offline. A biblioteca docx 9.6.1 é distribuída sob licença MIT, disponível em `dist/vendor/DOCX-LICENSE.txt`.
 
 - Avanço por atividade = executado ÷ quantidade contratada. Conclusão exige quantidade total e data real de término. O status da obra é mantido manualmente em Configurações.
 - Avanço agregado = média dos percentuais físicos ponderada pelo valor contratual dos serviços. Não equivale à medição aprovada ou dinheiro recebido.

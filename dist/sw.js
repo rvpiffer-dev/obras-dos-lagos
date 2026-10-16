@@ -1,6 +1,6 @@
 /* Cache restrito ao diretório do aplicativo, inclusive quando publicado em /repositorio/. */
-const CACHE='obras-lagos-20261016-v2';
-const CORE=['./','./index.html','./styles.css','./data.js','./domain.js','./app.js','./pwa.js','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png'];
+const CACHE='obras-lagos-20261016-v3';
+const CORE=['./','./index.html','./styles.css','./data.js','./domain.js','./app.js','./pwa.js','./photos.js','./diary-docx.js','./vendor/docx-9.6.1.js','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('obras-lagos-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',event=>{
